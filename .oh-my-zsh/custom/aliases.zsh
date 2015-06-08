@@ -102,9 +102,8 @@ alias ge2e='gulp test:e2e'
 alias gall='gulp test'
 alias gtdd='testUnit tdd'
 alias gopen='gulp open'
-alias gsnap='gulp snapshotDb'
-alias grest='gulp restoreSnapshot'
-alias gresnap='gulp restoreSnapshot && gulp snapshotDb'
+alias gsnap='gulp db:snapshot --name=freshdb'
+alias grest='gulp db:restore --keep --name=freshdb'
 
 # Desktop programs
 alias fireworks="open -a '/Applications/Adobe Fireworks CS3/Adobe Fireworks CS3.app'"
