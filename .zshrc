@@ -49,8 +49,7 @@ plugins=(git bower brew docker git-flow gitfast node npm osx autojump gradle gul
 
 # User configuration
 
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home
-export PATH="/usr/local/bin:./node_modules/.bin:$JAVA_HOME/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/bin:/Users/robertlong/.gem/ruby/1.8/bin:/opt/nginx/sbin"
+export PATH=$PATH":/usr/local/bin:./node_modules/.bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/bin:/Users/robertlong/.gem/ruby/1.8/bin:/opt/nginx/sbin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -79,3 +78,4 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+export JAVA_HOME=$(/usr/libexec/java_home)
