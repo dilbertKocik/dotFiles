@@ -92,7 +92,7 @@ testUnit() {
     if [ $# -eq 1 ]; then
         gulp $1
     else
-        gulp $1 --unit='src/**/'$2'*.js'
+        gulp $1 --unit='src/**/'$2'*.js' --skipCheckCode
     fi
 }
 
