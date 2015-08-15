@@ -20,6 +20,6 @@
 	lg = log --oneline --decorate --all --graph
     sup = !git push --set-upstream origin `git symbolic-ref --short HEAD`
     set-upstream = !git push --set-upstream origin `git symbolic-ref --short HEAD`
-    cb = !git rev-parse --abbrev-ref HEAD | pbcopy
+    cb = !git rev-parse --abbrev-ref HEAD | xargs echo -n | pbcopy
 [push]
 	default = simple
