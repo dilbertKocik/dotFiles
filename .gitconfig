@@ -23,3 +23,5 @@
     cb = !git rev-parse --abbrev-ref HEAD | xargs echo -n | pbcopy
 [push]
 	default = simple
+[color]
+	ui = true

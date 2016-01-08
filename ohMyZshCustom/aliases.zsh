@@ -66,6 +66,14 @@ checkoutBranch() {
     git checkout `(gb && gbr) | grep -i $1 -m 1 | sed -e "s/origin\///"`
 }
 
+statusAgainstBranch() {
+    git diff --stat origin/$1...`git rev-parse --abbrev-ref HEAD | xargs echo -n`
+}
+
+diffAgainstBranch() {
+    git diff origin/$1...`git rev-parse --abbrev-ref HEAD | xargs echo -n`
+}
+
 alias g='git'
 alias get='git'
 alias gs='git status'
@@ -76,6 +84,10 @@ alias gp='git push'
 alias gb='git branch'
 alias gba='git branch -a'
 alias gbr='git branch -r'
+alias gdd='diffAgainstBranch develop'
+alias gdab=diffAgainstBranch
+alias gsd='statusAgainstBranch develop'
+alias gsab=statusAgainstBranch
 alias gmd='git pull && git merge origin/develop'
 alias gpurge="git branch -r | awk '{print \$1}' | egrep -v -f /dev/fd/0 <(git branch -vv | grep origin) | awk '{print \$1}' | xargs git branch -d"
 alias gprune='git remote prune origin'
@@ -92,7 +104,7 @@ testUnit() {
     if [ $# -eq 1 ]; then
         gulp $1
     else
-        gulp $1 --unit='src/**/'$2'*.js' --skipCheckCode
+        gulp $1 --unit='src/**/'$2'*.js' --skipCheckCode --mockExceptions
     fi
 }
 
@@ -131,3 +143,18 @@ alias hidehidden="defaults write com.apple.finder AppleShowAllFiles FALSE"
 
 # Telnet Star Wars
 alias starwars='telnet towel.blinkenlights.nl'
+
+# Vault
+getDockerIp() {
+    echo $(docker-machine ip vault-vm)
+}
+
+vault() {
+    (cd ~/dev/vault; ./vault $@)
+}
+
+vaultApiUrl() {
+    echo http://$(docker-machine ip vault-vm):8080/
+}
+
+alias localui='vault "up -d" -e dev api'
