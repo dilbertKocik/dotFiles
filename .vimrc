@@ -73,6 +73,9 @@ let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute " ,"trimming em
 " Always show current position
 set ruler
 
+" set clipboard so you can paste outside of vim anything copied inside of vim
+set clipboard=unnamed
+
 " configure the status line
 set laststatus=2
 

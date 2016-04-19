@@ -24,4 +24,6 @@
 [push]
 	default = simple
 [color]
-	ui = true
+    ui = true
+[diff "csv"]
+    wordRegex = [^,\n]+[,\n]|[,]
