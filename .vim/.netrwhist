@@ -1,10 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =8
-let g:netrw_dirhist_1='/Users/robertlong/.vim'
-let g:netrw_dirhist_2='/Users/robertlong/.vim/bundle/Vundle.vim'
-let g:netrw_dirhist_3='/Users/robertlong/.vim'
-let g:netrw_dirhist_4='/Users/robertlong/.vim/bundle/YouCompleteMe'
-let g:netrw_dirhist_5='/Users/robertlong/.vim'
-let g:netrw_dirhist_6='/Users/robertlong'
-let g:netrw_dirhist_7='/Users/robertlong/.oh-my-zsh'
-let g:netrw_dirhist_8='/Users/robertlong/dev/a-whole-new-world/.git'
+let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_1='/Users/robertlong/dev/a-whole-new-world/.git/objects'
+let g:netrw_dirhist_2='/Users/robertlong/dev/a-whole-new-world/.git'
+let g:netrw_dirhist_3='/Users/robertlong/dev/a-whole-new-world/.git/refs'
+let g:netrw_dirhist_4='/Users/robertlong/dev/a-whole-new-world/.git'
