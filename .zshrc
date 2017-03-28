@@ -48,7 +48,7 @@ CASE_SENSITIVE="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git bower brew docker git-flow gitfast node npm osx autojump gradle gulp zsh-syntax-highlighting)
+plugins=(git git-open bower brew docker git-flow gitfast node npm osx autojump gradle gulp zsh-syntax-highlighting)
 
 # User configuration
 
@@ -82,6 +82,16 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 export JAVA_HOME=$(/usr/libexec/java_home)
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export ANDROID_NDK_HOME=$HOME/Library/Android/ndk
+export NDK_MODULE_PATH=$HOME/Library/Android/ndk
 
 # Turn off rm * verification nag
 setopt rmstarsilent
+
+# Turn off shared history
+unsetopt inc_append_history
+unsetopt share_history
+
+# Load nodenv into shell environment
+eval "$(nodenv init -)"

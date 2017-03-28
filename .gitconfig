@@ -1,15 +1,9 @@
 [user]
 	name = Robert Long
-	email = robert.long@nextgearcapital.com
+	email = robert@trabian.com
 [core]
 	excludesfile = /Users/robertlong/.gitignore_global
-	editor = /usr/local/bin/vim
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
+	editor = vim
 [colur]
 	ui = true
 [pull]
@@ -25,5 +19,11 @@
 	default = simple
 [color]
     ui = true
-[diff "csv"]
-    wordRegex = [^,\n]+[,\n]|[,]
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
+[merge]
+	tool = kdiff3
+[mergetool]
+	keepBackup = false

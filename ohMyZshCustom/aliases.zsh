@@ -2,6 +2,9 @@
 alias bashalias='vim ~/.oh-my-zsh/custom/aliases.zsh && reload'
 alias gitalias='vim ~/.gitconfig && reload'
 
+# Android
+alias android='~/Library/Android/sdk/tools/android'
+
 # zsh
 alias reload=". ~/.zshrc && echo 'ZSH config reloaded from ~/.zshrc'"
 alias zshrc='vim ~/.zshrc && reload'
@@ -93,6 +96,12 @@ alias gpurge="git branch -r | awk '{print \$1}' | egrep -v -f /dev/fd/0 <(git br
 alias gprune='git remote prune origin'
 alias gcb=checkoutBranch
 alias gcd='git checkout develop'
+alias gcm='git checkout master'
+alias gskip='git update-index --skip-worktree'
+alias gnoskip='git update-index --no-skip-worktree'
+alias gskipenv='git update-index --skip-worktree src/environment.js'
+alias gnoskipenv='git update-index --no-skip-worktree src/environment.js'
+alias greset='git checkout -- .'
 
 # Gradle
 alias guild='gradle clean build run -Pdev -x test'
@@ -136,6 +145,9 @@ alias sublime="open -a '/Applications/Sublime Text.app'"
 alias hex='open -a "Hex Fiend"'
 alias skype='open -a Skype'
 alias mou='open -a Mou'
+
+# React native
+alias runios='react-native run-ios'
 
 # Show/hide hidden files (for Mac OS X Mavericks)
 alias showhidden="defaults write com.apple.finder AppleShowAllFiles TRUE"
