@@ -87,9 +87,12 @@ fi
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 export JAVA_HOME=$(/usr/libexec/java_home)
+export IDEA_JDK=$JAVA_HOME
+export GRADLE_HOME=/usr/local/opt/gradle/libexec
 export ANDROID_HOME=$HOME/Library/Android/sdk
 export ANDROID_NDK_HOME=$HOME/Library/Android/ndk
 export NDK_MODULE_PATH=$HOME/Library/Android/ndk
+export SPRING_PROFILES_ACTIVE=local
 
 # Turn off rm * verification nag
 setopt rmstarsilent

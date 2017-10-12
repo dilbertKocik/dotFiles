@@ -125,6 +125,7 @@ alias gtdd='testUnit tdd'
 alias gopen='gulp open'
 alias gsnap='gulp db:snapshot --name=freshdb'
 alias grest='gulp db:restore --keep --name=freshdb'
+alias gwatch='gulp watch --api-url="http://localhost:8080/"'
 
 # Desktop programs
 alias fireworks="open -a '/Applications/Adobe Fireworks CS3/Adobe Fireworks CS3.app'"
@@ -169,4 +170,4 @@ vaultApiUrl() {
     echo http://$(docker-machine ip vault-vm):8080/
 }
 
-alias localui='vault "up -d" -e dev api'
+alias localui='vault local api -x test'

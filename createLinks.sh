@@ -2,7 +2,7 @@
 
 this_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-for f in $(find -E . -name ".*" ! -regex ".*git(ignore|modules)?$" -depth 1); do
+for f in $(find -E . -name ".*" ! -regex ".*git(ignore|modules)?$" -depth 1 -execdir echo {} ';'); do
     if [[ -e $HOME/$f ]]; then
         mv $HOME/$f $HOME/$f.old
     fi
