@@ -1,6 +1,6 @@
 [user]
 	name = Robert Long
-	email = robert@nextgearcapital.com
+	email = Robert.Long2@coxautoinc.com
 [core]
 	excludesfile = /Users/robertlong/.gitignore_global
 	editor = vim
@@ -20,9 +20,10 @@
 [color]
     ui = true
 [filter "lfs"]
-	clean = git-lfs clean %f
-	smudge = git-lfs smudge %f
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
 	required = true
+	process = git-lfs filter-process
 [merge]
 	tool = kdiff3
 [mergetool]

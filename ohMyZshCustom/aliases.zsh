@@ -74,7 +74,7 @@ statusAgainstBranch() {
 }
 
 diffAgainstBranch() {
-    git diff origin/$1...`git rev-parse --abbrev-ref HEAD | xargs echo -n`
+    git diff origin/$1...`git rev-parse --abbrev-ref HEAD | xargs echo -n` $2
 }
 
 alias g='git'
@@ -123,9 +123,9 @@ alias ge2e='gulp test:e2e'
 alias gall='gulp test'
 alias gtdd='testUnit tdd'
 alias gopen='gulp open'
-alias gsnap='gulp db:snapshot --name=freshdb'
-alias grest='gulp db:restore --keep --name=freshdb'
-alias gwatch='gulp watch --api-url="http://localhost:8080/"'
+alias gsnap='gulpVault db:snapshot --name=freshdb'
+alias grest='gulpVault db:restore --keep --name=freshdb'
+alias gwatch='gulpVault watch --api-url="http://localhost:8080/"'
 
 # Desktop programs
 alias fireworks="open -a '/Applications/Adobe Fireworks CS3/Adobe Fireworks CS3.app'"
@@ -147,6 +147,9 @@ alias hex='open -a "Hex Fiend"'
 alias skype='open -a Skype'
 alias mou='open -a Mou'
 
+# Docker
+alias dc="docker-compose"
+
 # React native
 alias runios='react-native run-ios'
 
@@ -166,8 +169,12 @@ vault() {
     (cd ~/dev/vault; ./vault $@)
 }
 
+gulpVault() {
+    (cd ~/dev/vault/client; gulp $@)
+}
+
 vaultApiUrl() {
     echo http://$(docker-machine ip vault-vm):8080/
 }
 
-alias localui='vault local api -x test'
+alias startVaultServices='vault local ui --local-api --no-install --no-pull --watch'

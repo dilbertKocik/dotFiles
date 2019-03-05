@@ -1,2 +1,3 @@
 privateAliases.zsh
 .vim/bundle/*
+.DS_Store

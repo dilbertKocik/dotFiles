@@ -52,7 +52,7 @@ plugins=(git git-open bower brew docker git-flow gitfast node npm osx autojump g
 
 # User configuration
 
-export PATH=$PATH":/usr/local/bin:./node_modules/.bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/bin:/Users/robertlong/.gem/ruby/1.8/bin:/opt/nginx/sbin"
+export PATH=$PATH":/usr/local/bin:./node_modules/.bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/bin:/Users/robertlong/.gem/ruby/1.8/bin:/opt/nginx/sbin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -77,6 +77,12 @@ source $ZSH/oh-my-zsh.sh
 if [ -f ~/.config/exercism/exercism_completion.zsh ]; then
   . ~/.config/exercism/exercism_completion.zsh
 fi
+
+# aws command autocompletion
+source /usr/local/bin/aws_zsh_completer.sh
+
+# zsh auto-completion
+fpath=(/usr/local/share/zsh-completions $fpath)
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -103,3 +109,14 @@ unsetopt share_history
 
 # Load nodenv into shell environment
 eval "$(nodenv init -)"
+
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[[ -f /Users/robert.long/.nodenv/versions/8.5.0/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/robert.long/.nodenv/versions/8.5.0/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[[ -f /Users/robert.long/.nodenv/versions/8.5.0/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/robert.long/.nodenv/versions/8.5.0/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/Users/robert.long/.sdkman"
+[[ -s "/Users/robert.long/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/robert.long/.sdkman/bin/sdkman-init.sh"
