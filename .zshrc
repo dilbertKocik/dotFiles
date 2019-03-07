@@ -48,7 +48,7 @@ ZSH_THEME="agnosterzak"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git git-open bower brew docker git-flow gitfast node npm osx autojump gradle gulp zsh-syntax-highlighting)
+plugins=(git git-open bower brew docker git-flow gitfast node npm osx gradle gulp zsh-syntax-highlighting)
 
 # User configuration
 
@@ -77,6 +77,12 @@ source $ZSH/oh-my-zsh.sh
 if [ -f ~/.config/exercism/exercism_completion.zsh ]; then
   . ~/.config/exercism/exercism_completion.zsh
 fi
+
+# Manually load autojump lazily because it slows down the terminal startup if it is included in plugins.
+function j() {
+    . `brew --prefix`/etc/autojump.sh || echo hello
+    j "$@"
+}
 
 # aws command autocompletion
 source /usr/local/bin/aws_zsh_completer.sh
@@ -107,8 +113,12 @@ setopt rmstarsilent
 unsetopt inc_append_history
 unsetopt share_history
 
-# Load nodenv into shell environment
-eval "$(nodenv init -)"
+# Load nodenv into shell environment lazily
+function nodenv() {
+    unset -f nodenv
+    eval "$(nodenv init -)"
+    nodenv "$@"
+}
 
 # tabtab source for serverless package
 # uninstall by removing these lines or running `tabtab uninstall serverless`
@@ -118,5 +128,9 @@ eval "$(nodenv init -)"
 [[ -f /Users/robert.long/.nodenv/versions/8.5.0/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/robert.long/.nodenv/versions/8.5.0/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/Users/robert.long/.sdkman"
-[[ -s "/Users/robert.long/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/robert.long/.sdkman/bin/sdkman-init.sh"
+function sdk() {
+    unset -f sdk
+    export SDKMAN_DIR="/Users/robert.long/.sdkman"
+    [[ -s "/Users/robert.long/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/robert.long/.sdkman/bin/sdkman-init.sh"
+    sdk "$@"
+}
