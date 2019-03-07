@@ -352,7 +352,6 @@ prompt_status() {
 ## Main prompt
 build_prompt() {
   RETVAL=$?
-  print -n "\n"
   prompt_status
   prompt_battery
   prompt_time
