@@ -48,7 +48,7 @@ ZSH_THEME="agnosterzak"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git git-open bower brew docker git-flow gitfast node npm osx gradle gulp zsh-syntax-highlighting)
+plugins=(git git-open bower brew docker git-flow gitfast node npm osx gradle gulp zsh-syntax-highlighting zsh-autosuggestions)
 
 # User configuration
 
@@ -85,7 +85,7 @@ function j() {
 }
 
 # aws command autocompletion
-source /usr/local/bin/aws_zsh_completer.sh
+source /usr/local/aws/bin/aws_zsh_completer.sh
 
 # zsh auto-completion
 fpath=(/usr/local/share/zsh-completions $fpath)
@@ -98,7 +98,7 @@ fpath=(/usr/local/share/zsh-completions $fpath)
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-export JAVA_HOME=$(/usr/libexec/java_home)
+#export JAVA_HOME=$(/usr/libexec/java_home)
 export IDEA_JDK=$JAVA_HOME
 export GRADLE_HOME=/usr/local/opt/gradle/libexec
 export ANDROID_HOME=$HOME/Library/Android/sdk
@@ -128,9 +128,9 @@ function nodenv() {
 [[ -f /Users/robert.long/.nodenv/versions/8.5.0/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/robert.long/.nodenv/versions/8.5.0/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-function sdk() {
-    unset -f sdk
+#function sdk() {
+#    unset -f sdk
     export SDKMAN_DIR="/Users/robert.long/.sdkman"
     [[ -s "/Users/robert.long/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/robert.long/.sdkman/bin/sdkman-init.sh"
-    sdk "$@"
-}
+#    sdk "$@"
+#}

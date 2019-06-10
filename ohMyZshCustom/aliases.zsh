@@ -149,6 +149,9 @@ alias mou='open -a Mou'
 
 # Docker
 alias dc="docker-compose"
+alias dkc='docker kill $(docker ps -q)'
+alias drc='docker rm $(docker ps -aq)'
+alias dup='dc -f ops/compose/docker-compose.yml up -d'
 
 # React native
 alias runios='react-native run-ios'
