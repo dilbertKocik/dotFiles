@@ -113,12 +113,8 @@ setopt rmstarsilent
 unsetopt inc_append_history
 unsetopt share_history
 
-# Load nodenv into shell environment lazily
-function nodenv() {
-    unset -f nodenv
-    eval "$(nodenv init -)"
-    nodenv "$@"
-}
+# Load nodenv on session startup
+eval "$(nodenv init -)"
 
 # tabtab source for serverless package
 # uninstall by removing these lines or running `tabtab uninstall serverless`
