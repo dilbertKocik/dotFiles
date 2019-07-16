@@ -238,7 +238,7 @@ prompt_git() {
     fi
 
     local tag_at_current_commit=$(git describe --exact-match --tags $current_commit_hash 2> /dev/null)
-    if [[ -n $tag_at_current_commit ]]; then tagged=" ☗$tag_at_current_commit "; fi
+    if [[ -n $tag_at_current_commit ]]; then tagged=" ☗ $tag_at_current_commit "; fi
 
     local number_of_stashes="$(git stash list 2> /dev/null | wc -l)"
     if [[ $number_of_stashes -gt 0 ]]; then
