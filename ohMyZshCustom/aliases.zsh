@@ -169,11 +169,11 @@ getDockerIp() {
 }
 
 vault() {
-    (cd ~/dev/vault; ./vault $@)
+    (cd ~/dev/oldVault; ./vault $@)
 }
 
 gulpVault() {
-    (cd ~/dev/vault/client; gulp $@)
+    (cd ~/dev/oldVault/client; gulp $@)
 }
 
 vaultApiUrl() {
