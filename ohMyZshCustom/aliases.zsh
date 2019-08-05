@@ -168,16 +168,10 @@ getDockerIp() {
     echo $(docker-machine ip vault-vm)
 }
 
-vault() {
-    (cd ~/dev/oldVault; ./vault $@)
-}
-
 gulpVault() {
-    (cd ~/dev/oldVault/client; gulp $@)
+    (cd ~/dev/vaultUI/client; gulp $@)
 }
 
 vaultApiUrl() {
     echo http://$(docker-machine ip vault-vm):8080/
 }
-
-alias startVaultServices='vault local ui --local-api --no-install --no-pull --watch'
