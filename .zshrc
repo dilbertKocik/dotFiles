@@ -48,11 +48,14 @@ ZSH_THEME="agnosterzak"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git git-open bower brew docker git-flow gitfast node npm osx gradle gulp zsh-syntax-highlighting zsh-autosuggestions)
+plugins=(git bower brew docker gitfast node npm osx zsh-syntax-highlighting zsh-autosuggestions zsh-completions)
 
 # User configuration
 
-export PATH=$PATH":/usr/local/bin:./node_modules/.bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/bin:/Users/robertlong/.gem/ruby/1.8/bin:/opt/nginx/sbin"
+# zsh-completions
+autoload -U compinit && compinit
+
+export PATH=$PATH":/usr/local/bin:./node_modules/.bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/bin:/opt/nginx/sbin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -85,10 +88,10 @@ function j() {
 }
 
 # aws command autocompletion
-source /usr/local/aws/bin/aws_zsh_completer.sh
+#source /usr/local/aws/bin/aws_zsh_completer.sh
 
 # zsh auto-completion
-fpath=(/usr/local/share/zsh-completions $fpath)
+#fpath=(/usr/local/share/zsh-completions $fpath)
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -99,12 +102,6 @@ fpath=(/usr/local/share/zsh-completions $fpath)
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #export JAVA_HOME=$(/usr/libexec/java_home)
-export IDEA_JDK=$JAVA_HOME
-export GRADLE_HOME=/usr/local/opt/gradle/libexec
-export ANDROID_HOME=$HOME/Library/Android/sdk
-export ANDROID_NDK_HOME=$HOME/Library/Android/ndk
-export NDK_MODULE_PATH=$HOME/Library/Android/ndk
-export SPRING_PROFILES_ACTIVE=local
 
 # Turn off rm * verification nag
 setopt rmstarsilent
@@ -116,17 +113,3 @@ unsetopt share_history
 # Load nodenv on session startup
 eval "$(nodenv init -)"
 
-# tabtab source for serverless package
-# uninstall by removing these lines or running `tabtab uninstall serverless`
-[[ -f /Users/robert.long/.nodenv/versions/8.5.0/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/robert.long/.nodenv/versions/8.5.0/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh
-# tabtab source for sls package
-# uninstall by removing these lines or running `tabtab uninstall sls`
-[[ -f /Users/robert.long/.nodenv/versions/8.5.0/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/robert.long/.nodenv/versions/8.5.0/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
-
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-#function sdk() {
-#    unset -f sdk
-    export SDKMAN_DIR="/Users/robert.long/.sdkman"
-    [[ -s "/Users/robert.long/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/robert.long/.sdkman/bin/sdkman-init.sh"
-#    sdk "$@"
-#}

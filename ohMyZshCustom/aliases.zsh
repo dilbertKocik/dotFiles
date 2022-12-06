@@ -12,6 +12,9 @@ alias zshrc='vim ~/.zshrc && reload'
 # Edit vimrc
 alias vimrc='vim ~/.vimrc'
 
+# nvim
+alias vim='nvim'
+
 # Bambooed
 alias bam='bambooed --project TMS --plan TMS --server http://bamboo.nextgearcapital.com'
 
@@ -93,7 +96,9 @@ alias gsd='statusAgainstBranch develop'
 alias gsab=statusAgainstBranch
 alias gmd='git pull && git merge origin/develop'
 alias gpurge="git branch -r | awk '{print \$1}' | egrep -v -f /dev/fd/0 <(git branch -vv | grep origin) | awk '{print \$1}' | xargs git branch -d"
+alias gpurgemine="git branch -r | awk '{print \$1}' | egrep -v -f /dev/fd/0 <(git branch -vv | grep mine) | awk '{print \$1}' | xargs git branch -d"
 alias gprune='git remote prune origin'
+alias gprunemine='git remote prune mine'
 alias gcb=checkoutBranch
 alias gcd='git checkout develop'
 alias gcm='git checkout master'

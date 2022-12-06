@@ -1,9 +1,9 @@
 [user]
 	name = Robert Long
-	email = robert.long2@coxautoinc.com
+	email = rlong@sfox.com
 [core]
 	excludesfile = /Users/robertlong/.gitignore_global
-	editor = vim
+	editor = nvim
 [colur]
 	ui = true
 [pull]
@@ -28,3 +28,5 @@
 	tool = kdiff3
 [mergetool]
 	keepBackup = false
+[credential]
+	helper = store
